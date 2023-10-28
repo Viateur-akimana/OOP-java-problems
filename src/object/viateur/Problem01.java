@@ -1,3 +1,5 @@
+package object.viateur;
+// Class A with a string property called message and a method called hello
 // Class A with a string property called message and a method called hello
 class A {
     protected String message; // protected so that it can be accessed by subclass B
@@ -20,20 +22,21 @@ class B extends A {
         super(message);
     }
 
-    // Override the hello method of class A
+    // Override the message variable in class B
     @Override
     public void hello() {
-        System.out.println("Overridden hello method in class B: " + message);
+        super.hello(); // Call the hello method of class A
+        System.out.println("Hello from class B: " + message);
     }
 }
 
 // Class Exercise01 with a main method
 public class Problem01 {
     public static void main(String[] args) {
-        // Create an instance of class B and assign it to a variable of type A
-        A objectA = new B("Hello from class B!");
-
-        // Call the hello method on the variable of type A
-        objectA.hello(); // Output: Overridden hello method in class B: Hello from class B!
+        // Create an instance of class B and call the hello method
+        B objectB = new B("Message from class B!");
+        objectB.hello();
+        // Output: Message from class B!
+        //         Hello from class B: Message from class B!
     }
 }
